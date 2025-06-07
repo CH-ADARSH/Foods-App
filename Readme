@@ -12,3 +12,16 @@
         - `Props` - passing arguments to a function - Use Destructuring & Spread operator
       - `Render` your cards with dynamic data of restaurants
       - Use `Array.map` to render all the restaurants
+
+## Coding Challenge
+
+- Understood the importance of the file structure.
+  - Every Component should be in a different file name after its component_name.(Always make sure Components must start with capital letter🚀).
+  - It is a good practice to keep the HARD-CODED DATA(EG:- data,logoimg,cdn for images if any) in utils folder in the src.
+  - This is considered a good practice.
+- Learnt about 2 different types of imports and exports named export and other is default export.
+  - Suppose you want to export 2 values its better to use named export.(simply by writing "export const Utils_Name").
+  - Else use default export for componets.
+  - Named export can be imported using following eg:-
+    import {named export name} from "../utils/named export name".
+  - you can use a default export along with named exports in the same JavaScript/React file
