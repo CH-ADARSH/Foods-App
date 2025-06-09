@@ -73,3 +73,11 @@
   object-fit: cover;
   border-radius: 8px;
 }
+
+.filter-btn {
+  cursor: pointer;
+  margin: 15px;
+  padding: 8px;
+  /* border: none;
+  background-color: white; */
+}

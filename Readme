@@ -25,3 +25,12 @@
   - Named export can be imported using following eg:-
     import {named export name} from "../utils/named export name".
   - you can use a default export along with named exports in the same JavaScript/React file
+- Added conflict driven UI.
+
+## Adding top rated feature
+
+- using onclick event
+- Hooks in React :- UseState() , React keeps track of the state variable
+- how React Reconcilation algorithm works(It is also known as React Fiber).
+- React keeps on creating and rendering virtualDOM whenever a react reconcilation occur
+-
