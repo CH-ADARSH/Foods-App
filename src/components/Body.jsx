@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const Body = () => {
   //local State Variable - super powerful variable hooks in raect
-  const [listOfRestaurants, setListOfRestraunt] = useState(resObj);
+  const [listOfRestaurants, setListOfRestaurants] = useState();
 
   useEffect(() => {
     fetchData();
@@ -12,9 +12,18 @@ const Body = () => {
   // so if you want to do something after rendering then write it in useEffect funciton(Hook).
   // in this code 1st body function is rendered , as soon as the render cycle is over it 
   // call's the useEffect hook or funciton
-  const fetchData = () => {
-    const data = fetch()
+  const fetchData = async () => {
+    // const data = await fetch("https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/"
+    // );
+    
+    const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.624480699999999&page_type=DESKTOP_WEB_LISTING');
+
+    const json = await data.json();
+    console.log(json);
+    setListOfRestaurants(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants.info)
+
   }
+  {console.log(setListOfRestaurants)}
     return ( 
       <div className="body">
         <div className="filter">
@@ -24,14 +33,14 @@ const Body = () => {
             const filteredList = listOfRestaurants.filter(
               (res) => res.data.avgRating > 4
             );
-            setListOfRestraunt(filteredList);
+            setListOfRestaurants(filteredList);
           }} 
           >
             Top Rated Restaurant</button> 
         </div>
         <div className="res-container">
-          {listOfRestaurants.map((restaurant) => (
-            <ResturantCard key={restaurant.data.id} resData={restaurant} />
+          {setListOfRestaurants.map((restaurants) => (
+            <ResturantCard key={restaurants.data.id} resData={restaurants} />
           ))}
         </div>
       </div>
