@@ -34,3 +34,9 @@
 - how React Reconcilation algorithm works(It is also known as React Fiber).
 - React keeps on creating and rendering virtualDOM whenever a react reconcilation occur
 -
+
+## Shimmer UI
+
+- Industry best practice to use shimmer ui to imporve user experience
+- its kind of fake cards which are transparent or shimmeer ui
+- whenevr we load a page before we see the actual data we see an empty cards that is what is shimmer ui
