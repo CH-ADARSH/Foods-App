@@ -4,18 +4,16 @@
   "description": "- Build a `Food Ordering App`\r   - Think of a `cool name` for your app\r   - Build an `AppLayout`\r   - Build a `Header Component` with Logo & Nav Items & Cart\r   - Build a `Body Component`\r     - Build `RestaurantList Component`\r     - Build `RestaurantCard Component`\r       - Use `static data initially`\r       - Make your `card dynamic`(pass in props)\r         - `Props` - passing arguments to a function - Use Destructuring & Spread operator\r       - `Render` your cards with dynamic data of restaurants\r       - Use `Array.map` to render all the restaurants",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"parcel index.html",
-    "build":"parcel build index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
-  
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-
   "dependencies": {
     "react": "^19.1.0",
-    "react-router-dom": "^7.6.2"
+    "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
     "parcel": "^2.15.2"

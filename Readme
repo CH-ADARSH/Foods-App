@@ -40,3 +40,18 @@
 - Industry best practice to use shimmer ui to imporve user experience
 - its kind of fake cards which are transparent or shimmeer ui
 - whenevr we load a page before we see the actual data we see an empty cards that is what is shimmer ui
+
+## Hooks
+
+## useState()
+
+## useEffect()
+
+## useRouteError()
+
+-- React-router-dom has another powerful component, "Link" component which takes "to" as a parameter its is helpful in traversing from one page to another without refreshing the page.
+
+Types of routing in web apps
+
+- client side routing
+- server side routing
