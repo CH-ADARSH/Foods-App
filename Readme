@@ -49,9 +49,14 @@
 
 ## useRouteError()
 
--- React-router-dom has another powerful component, "Link" component which takes "to" as a parameter its is helpful in traversing from one page to another without refreshing the page.
+-- React-router-dom has another powerful component, "Link" component which takes "to" as a parameter its is helpful in traversing from one page to another without refreshing the page. error managemnt.
 
-Types of routing in web apps
+## 2 Types of routing in web apps
 
 - client side routing
+  -- using link component we can create a client side routing
+  -- from home page to contact page by clicking on it the page does not load but only components move.
+  -- this is why react is a single page application.
 - server side routing
+  -- using anchor tag to route from home page to contact page by clicking
+  -- make a call and then the page reloads the whole page
