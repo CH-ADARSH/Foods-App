@@ -52,6 +52,10 @@
   cursor: pointer;
   margin: 15px;
 }
+.link {
+  text-decoration: none;
+  color: black;
+}
 .res-card:hover {
   box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.241);
   transition: all 0.4s linear;
