@@ -60,3 +60,7 @@
 - server side routing
   -- using anchor tag to route from home page to contact page by clicking
   -- make a call and then the page reloads the whole page
+
+## Dynamic routing
+
+- using " : " colon we can dynamically traverse.
