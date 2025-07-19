@@ -64,3 +64,10 @@
 ## Dynamic routing
 
 - using " : " colon we can dynamically traverse.
+
+## RestuarantMenu
+
+-- implemented how to render each card data
+-- A feature to show menu when clicked on the Restaurantcard
+
+-- on clicked on Restaurantcard ==> RestaurantMenu appears

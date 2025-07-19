@@ -2,7 +2,7 @@ import ResturantCard from "./ResturantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import { json } from "react-router-dom";
+import {RESTAURANT} from "../utils/constants.jsx"
 
 const Body = () => {
   //local State Variable - super powerful variable hooks in raect
@@ -18,7 +18,7 @@ const Body = () => {
   // call's the useEffect hook or funciton
   const fetchData = async () => {
     
-    const infos = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.624480699999999&page_type=DESKTOP_WEB_LISTING');
+    const infos = await fetch(RESTAURANT);
     const json = await infos.json();
     setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setfilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)

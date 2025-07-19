@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer.jsx";
-import { useParams } from "react-router-dom";
+import { json, useParams } from "react-router-dom";
 import { MENU_API } from "../utils/constants.jsx";
 
 const RestaurantMenu = () => {
@@ -26,21 +26,20 @@ const RestaurantMenu = () => {
 
     const { name, cuisines, costForTwoMessage } = resInfo?.cards[2]?.card?.card?.info
     
-    const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card || resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[0]?.card?.card?.categories
+    const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card 
     
-    // const {title} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
-    console.log(itemCards)
+    const {title} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card 
     return (
         <div className="Recommended">
             <h1>{name}</h1>
             <p>{cuisines.join(", ")} - {costForTwoMessage }</p>
-            <h2>Menu</h2>
+            <h2>{ title}</h2>
             <ul>
                 {itemCards?.map((item) =>
                     <li key={item.card?.info?.id || item.card?.info?.categoryId
 }>{item.card?.info?.name} -
                         {" Rs"}
-                        {item.card?.info?.price / 100 || item.card?.info?.defaultprice / 100}
+                        {item.card?.info?.price / 100 || item.card?.info?.defaultPrice / 100}
                     </li>
                 )}    
             </ul>
