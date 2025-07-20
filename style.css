@@ -123,3 +123,15 @@
   padding: 10px;
   border: 1px solid black;
 }
+
+.Recommended {
+  padding: 15px;
+  border: 1px solid black;
+  /* border: 1; */
+  margin: 40px;
+}
+
+.menu {
+  border: 1px solid blue;
+  list-style: none;
+}
