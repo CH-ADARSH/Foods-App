@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import {RESTAURANT} from "../utils/constants.jsx"
+import useOnlineStatus from "../utils/useOnlineStatus.jsx";
 
 const Body = () => {
   //local State Variable - super powerful variable hooks in raect
@@ -23,9 +24,13 @@ const Body = () => {
     setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setfilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
-  // if (listOfRestaurants.length === 0) { 
+  // if (listOfRestaurants.length === 0) {
   //   return <Shimmer />;
   // }
+  const onlineStatus = useOnlineStatus();
+
+  if(onlineStatus === false) return <Shimmer/>
+
   return listOfRestaurants.length === 0 ? (
       <Shimmer />
   ):(

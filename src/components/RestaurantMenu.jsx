@@ -1,35 +1,31 @@
-import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer.jsx";
 import { json, useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constants.jsx";
+import useRestaurantMenu from "../utils/useRestaurantMenu.jsx";
+import useOnlineStatus from "../utils/useOnlineStatus.jsx";
+
 
 const RestaurantMenu = () => {
     // using state vaiable for menu
-    const [resInfo, setResInfo] = useState(null);
-
     const { resId } = useParams();
 
-    useEffect(() => {
-        fetchMenu();
-    }, []);
-
-    const fetchMenu = async () => {
-        const data = await fetch(MENU_API + resId);
-        const json = await data.json();
-        console.log(json)
-        setResInfo(json.data);
-    };
-
-    if (resInfo === null) return <Shimmer />;
-
-    // const {Cards} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR
-
-    const { name, cuisines, costForTwoMessage } = resInfo?.cards[2]?.card?.card?.info
+    const resInfo = useRestaurantMenu(resId);
     
-    const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
+    const onlineStatus = useOnlineStatus();
+    
+    if (resInfo === null)  return <Shimmer />;
+    
+    const { name, cuisines, costForTwoMessage } =
+    resInfo?.cards[2]?.card?.card?.info
+    
+    const { itemCards } =
+        resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
  
+    const { title } =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card 
     
-    const {title} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card 
+
+    if(onlineStatus === false) return <Shimmer/>
+
     return (
         <div className="Recommended">
             <h1>{name}</h1>
@@ -37,10 +33,12 @@ const RestaurantMenu = () => {
             <h2>{ title}</h2>
             <ul className="menu">
                 {itemCards?.map((item) =>
-                    <li key={item.card?.info?.id || item.card?.info?.categoryId
-}>{item.card?.info?.name} -
+                    <li key={item.card?.info?.id ||
+                        item.card?.info?.categoryId}>
+                        {item.card?.info?.name} -
                         {" Rs"}
-                        {item.card?.info?.price / 100 || item.card?.info?.defaultPrice / 100}
+                        {item.card?.info?.price / 100 ||
+                            item.card?.info?.defaultPrice / 100}
                     </li>
                 )}    
             </ul>
