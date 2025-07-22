@@ -1,4 +1,4 @@
-import { LOGO_PNG, LOGO_URL } from "../utils/constants.jsx";
+import { LOGO_URL } from "../utils/constants";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -16,7 +16,7 @@ const Header = () => {
     <div className="flex justify-between">
       <div className="w-56">
         <img
-          src={LOGO_PNG}
+          src={LOGO_URL}
           alt="logo"
         />
       </div>
