@@ -1,4 +1,4 @@
-import { LOGO_URL } from "../utils/constants";
+import { LOGO_PNG, LOGO_URL } from "../utils/constants.jsx";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -13,15 +13,15 @@ const Header = () => {
 
   // console.log("rendering the header")
   return (
-    <div className="header">
-      <div className="logo">
+    <div className="flex justify-between">
+      <div className="w-56">
         <img
-          src={LOGO_URL}
+          src={LOGO_PNG}
           alt="logo"
         />
       </div>
       <div className="nav-items">
-        <ul>
+        <ul className="flex ">
           <li>Online Status:{ onlineStatus ? "Online📡" :"Offline⏳"}</li>
           <li>
             <Link to="/">
