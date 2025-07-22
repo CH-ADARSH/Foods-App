@@ -1,7 +1,6 @@
 import Shimmer from "./Shimmer.jsx";
 import { json, useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu.jsx";
-import useOnlineStatus from "../utils/useOnlineStatus.jsx";
 
 
 const RestaurantMenu = () => {
@@ -10,9 +9,8 @@ const RestaurantMenu = () => {
 
     const resInfo = useRestaurantMenu(resId);
     
-    const onlineStatus = useOnlineStatus();
     
-    if (resInfo === null)  return <Shimmer />;
+    if (resInfo === null) return <Shimmer />;
     
     const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[2]?.card?.card?.info
@@ -23,8 +21,6 @@ const RestaurantMenu = () => {
     const { title } =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card 
     
-
-    if(onlineStatus === false) return <Shimmer/>
 
     return (
         <div className="Recommended">

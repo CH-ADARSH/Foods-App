@@ -72,4 +72,16 @@
 
 -- on clicked on Restaurantcard ==> RestaurantMenu appears
 
--- learnt about custom hook implemented online feature
+-- learnt about custom hook implemented (online feature)
+
+## BUNDLING THE APP BASED ON ( ASSUME AS FOOD DELIVERY AND OTHER IS GROCEORY DELIVERY)
+
+-- sepearte bundle for grocery
+-- we load our page by using lazy-loading (ONDEMAND loaDING), It says when our app loads it won't load the grocery page, but only when we visit the link our grocery page it will load
+-- initially our page wont have the grocery file.
+--- LAZY() => it is a named function given by react.It takes a callback function.
+(eg:- const Component_Name = lazy(()=>import("./path of the component"))).
+--- IT IS ALWAYS BETTER TO USE SUSPENSE componet with lazy loading (Wrap ur component with suspense).
+--- it has fallback , which means you can say what you what to do when the page is loading.(you can pass component like shimmerUI or any other and also h1 with any msg you want to show to the user).
+
+## NOTE --- DO NOT IMPORT THE COMPONENT MANUALLY.IF YOU CREATE IT MANUALLY IT WON'T CREATE A SEPERATE CHUNK FOR THE GROCERY STORE DATA

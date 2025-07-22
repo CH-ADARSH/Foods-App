@@ -30,8 +30,8 @@ const Header = () => {
           </li>
           <li><Link to="/about">About Us</Link></li>
           <li><Link to="/contact">Contact Us</Link></li>
+          <li><Link to="/grocery">Grocery</Link></li>
           <li>Cart</li>
-          <li>My Orders</li>
           <button className="login" onClick={() => {
             btnNameReact === 'LogIn' ? setbtnNameReact('LogOut')
               : setbtnNameReact('LogIn');

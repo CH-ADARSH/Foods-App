@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-
+//  CUSTOM HOOKS have there own useState and useEffect Hooks
 const useOnlineStatus = () => {
     const [onlineStatus, setOnlineStatus] = useState(true);
 
@@ -21,5 +21,5 @@ const useOnlineStatus = () => {
 
     return onlineStatus;
 }
-
+ 
 export default useOnlineStatus;
