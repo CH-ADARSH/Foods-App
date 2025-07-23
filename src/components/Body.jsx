@@ -38,16 +38,16 @@ const Body = () => {
   return listOfRestaurants.length === 0 ? (
       <Shimmer />
   ):(
-      <div className="body">
-        <div className="filter">
-          <div className="search">
+      <div className="body  dark:bg-neutral-700">
+        <div className="filter pl-20 flex items-center ">
+          <div className="search m-4 p-3">
             <div>
-              <input type="text" className="search-box" placeholder="Search a restaurant..."
+              <input type="text" className="border border-solid border-black dark:border dark:border-solid dark:border-white"
                 value={searchText}
                 onChange={(e) => {
                   setSearchText(e.target.value);
                 }} />
-              <button onClick={() => {
+              <button className="px-3 py-1 bg-green-100 m-4 shadow-xl rounded-md" onClick={() => {
                 console.log(searchText);
                 const filteredRestraunt = listOfRestaurants.filter((res) =>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                 setfilteredRestaurant(filteredRestraunt);
@@ -55,18 +55,21 @@ const Body = () => {
               > search </button>
             </div>
           </div>
-          <button className="filter-btn"
-            onClick={() => {
-            // filter logic
-            const filteredList1 = listOfRestaurants.filter(
-              (res) => res.info.avgRatingString >"4.5"
-              );
-            setfilteredRestaurant(filteredList1); 
-          }} 
-          >
-            Top Rated Restaurant</button> 
+          <div className="search m-4 p-3">
+            <button className="px-4 py-2 bg-green-100 shadow-lg rounded-md"
+              onClick={() => {
+              // filter logic
+              const filteredList1 = listOfRestaurants.filter(
+                (res) => res.info.avgRatingString >"4.5"
+                );
+              setfilteredRestaurant(filteredList1); 
+            }} 
+            >
+              Top Rated ⭐</button> 
+
+          </div>
         </div>
-        <div className="res-container">
+        <div className="flex flex-wrap p-[55px] dark:bg-neutral-600">
           {filteredRestaurant.map((restaurants) => (
             <Link key={restaurants.info.id} to={"/restaurants/"+ restaurants.info.id} className="link"><ResturantCard resData={restaurants} /></Link>
           ))}

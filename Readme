@@ -85,3 +85,8 @@
 --- it has fallback , which means you can say what you what to do when the page is loading.(you can pass component like shimmerUI or any other and also h1 with any msg you want to show to the user).
 
 ## NOTE --- DO NOT IMPORT THE COMPONENT MANUALLY.IF YOU CREATE IT MANUALLY IT WON'T CREATE A SEPERATE CHUNK FOR THE GROCERY STORE DATA
+
+## ADDED TAILWINDCSS
+
+-- IMPLEMENTED TOOGLE MODE (DARK,WHITE,SYSTEM)
+USING WINDOW
