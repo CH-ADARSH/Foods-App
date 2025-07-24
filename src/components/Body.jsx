@@ -1,15 +1,18 @@
-import ResturantCard from "./ResturantCard";
+import ResturantCard,{withPromtedLabel} from "./ResturantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import {RESTAURANT} from "../utils/constants.jsx"
 import useOnlineStatus from "../utils/useOnlineStatus.jsx";
 
+
 const Body = () => {
   //local State Variable - super powerful variable hooks in raect
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurant, setfilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const RestaurantCardPromoted = withPromtedLabel(ResturantCard)
 
   useEffect(() => {
     fetchData();
@@ -71,7 +74,18 @@ const Body = () => {
         </div>
         <div className="flex flex-wrap p-[55px] dark:bg-neutral-600">
           {filteredRestaurant.map((restaurants) => (
-            <Link key={restaurants.info.id} to={"/restaurants/"+ restaurants.info.id} className="link"><ResturantCard resData={restaurants} /></Link>
+            <Link
+              key={restaurants.info.id}
+              to={"/restaurants/" + restaurants.info.id}
+              className="link">
+              {
+                restaurants.info.aggregatedDiscountInfoV3?
+                  (<RestaurantCardPromoted resData={restaurants}/>)
+                  :
+                  (<ResturantCard resData={restaurants} />)
+                }
+            </Link>
+            
           ))}
         </div>
       </div>

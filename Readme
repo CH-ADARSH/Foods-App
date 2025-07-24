@@ -88,5 +88,10 @@
 
 ## ADDED TAILWINDCSS
 
+-- Rewritten the complete css into tailwindcss
 -- IMPLEMENTED TOOGLE MODE (DARK,WHITE,SYSTEM)
 USING WINDOW
+
+## HIGHER ORDER COMPONENT
+
+-- It is a function which takes a component and returns a component.

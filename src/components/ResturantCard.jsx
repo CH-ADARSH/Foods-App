@@ -10,12 +10,20 @@ const ResturantCard = (props) => {
       avgRatingString,
       costForTwo,
       sla,
-  } = resData?.info;
+      aggregatedDiscountInfoV3,
+
+  } = resData?.info;  
+
     return (
       <div
-        className="m-4 p-4 w-[250px]  bg-green-100 rounded-md shadow-xl dark:bg-neutral-600 dark:text-white dark:shadow-xl dark:hover:border-solid"
-        >
+        className="m-4 p-4 w-[250px]  bg-green-100 rounded-md shadow-xl dark:bg-neutral-600 dark:text-stone-300 dark:shadow-xl "
+      >
         <div>
+        <span className="absolute bg-rose-100 text-black p-2 rounded-lg ">
+            <h1>
+              {aggregatedDiscountInfoV3?.header} {aggregatedDiscountInfoV3?.subHeader}
+            </h1>
+          </span>
           <img
             className="res-logo rounded-md"
             alt="res-logo"
@@ -24,6 +32,7 @@ const ResturantCard = (props) => {
               cloudinaryImageId
             }
           />
+          
         </div> 
         <div className="food-details text-wrap">
           <h3 className="font-bold py-2 text-lg">{name}</h3>
@@ -33,7 +42,26 @@ const ResturantCard = (props) => {
           <h4>{sla?.deliveryTime} minutes</h4>
         </div>
       </div>
-    );
+  );
+  
+  
 };
+// Higher Order Component
+
+// input- RestaurantCard ==> RestaurantCardPromoted
+export const withPromtedLabel = (ResturantCard ) => {
+  return (props) => {
+    // console.log(discountInfo)
+    return (
+      <div>
+        {/* <label className="absolute bg-black text-white p-2 y-0 rounded-lg">
+          <span>
+          </span>
+        </label> */}
+        <ResturantCard {...props} />
+      </div>
+    )
+  }
+}
 
 export default ResturantCard;
