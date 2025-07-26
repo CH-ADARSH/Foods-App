@@ -18,20 +18,23 @@ const ResturantCard = (props) => {
       <div
         className="m-4 p-4 w-[250px]  bg-green-100 rounded-md shadow-xl dark:bg-neutral-600 dark:text-stone-300 dark:shadow-xl "
       >
-        <div>
-        <span className="absolute bg-rose-100 text-black p-2 rounded-lg ">
+        <div className="relative">
+          <div className="absolute bg-blue-300 text-black p-1 ml-1 rounded-sm bottom-0">
             <h1>
               {aggregatedDiscountInfoV3?.header} {aggregatedDiscountInfoV3?.subHeader}
             </h1>
-          </span>
-          <img
-            className="res-logo rounded-md"
-            alt="res-logo"
-            src={
-              CDN_URL +
-              cloudinaryImageId
-            }
-          />
+          </div>
+          <div>
+            <img
+              className="res-logo rounded-md"
+              alt="res-logo"
+              src={
+                CDN_URL +
+                cloudinaryImageId
+              }
+            />
+
+          </div>
           
         </div> 
         <div className="food-details text-wrap">
