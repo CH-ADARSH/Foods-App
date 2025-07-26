@@ -95,3 +95,16 @@ USING WINDOW
 ## HIGHER ORDER COMPONENT
 
 -- It is a function which takes a component and returns a component.
+
+## Integrated MENUPAGE with data like Recommended many more with images
+
+-- updated swiggy image url
+-- CReated add feature for the menu page
+
+## ADDED A MENU ACCORDION
+
+-- on click on the Recommended or the button it collapse
+
+## CONTOLLED AND UNCONTROLLED COMPONENT
+
+## lifting the state up very basic

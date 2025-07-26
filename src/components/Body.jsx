@@ -42,7 +42,7 @@ const Body = () => {
       <Shimmer />
   ):(
       <div className="body  dark:bg-neutral-700">
-        <div className="filter pl-20 flex items-center ">
+        <div className="filter pl-20 flex items-center my-2 dark:shadow-sm dark:shadow-neutral-800">
           <div className="search m-4 p-3">
             <div>
               <input type="text" className="border border-solid border-black dark:border dark:border-solid dark:border-white"

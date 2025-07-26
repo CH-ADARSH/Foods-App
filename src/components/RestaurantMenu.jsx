@@ -2,6 +2,7 @@ import Shimmer from "./Shimmer.jsx";
 import { json, useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu.jsx";
 import RestaurantCategory from "./RestaurantCategory.jsx";
+import { useState } from "react";
 
 
 const RestaurantMenu = () => {
@@ -10,7 +11,8 @@ const RestaurantMenu = () => {
 
     const resInfo = useRestaurantMenu(resId);
     
-    
+    const [showIndex, setShowIndex] = useState(null);
+
     if (resInfo === null) return <Shimmer />;
     
     const { name, cuisines, costForTwoMessage } =
@@ -25,13 +27,24 @@ const RestaurantMenu = () => {
     const categories =
         resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((c) =>
             c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+    console.log(categories)
     return (
-        <div className="Recommended text-center dark:text-white  dark:bg-neutral-800">
-            <h1 className="font-bold my-6 text-2xl dark:text-white dark:bg-neutral-800">{name}</h1>
-            <p className="font-bold text-lg">{cuisines.join(", ")} -
+        <div className="Recommended text-center
+         dark:text-white dark:bg-neutral-800 my-2">
+            <h1 className="font-bold  text-2xl dark:text-white 
+             dark:bg-neutral-700">{name}</h1>
+            <p className="font-bold text-lg  dark:text-white
+             dark:bg-neutral-700">{cuisines.join(", ")} -
                 {costForTwoMessage}</p>
-            {categories.map((categories)=>(
-                <RestaurantCategory data={categories?.card?.card} />
+                {/* // Controlled component */}
+            {categories.map((categories, index) => (
+                <RestaurantCategory
+                    key={categories?.card?.card.title}
+                    data={categories?.card?.card}
+                    showItems={index === showIndex && true}
+                    // passing state variable to the childeren indirectly using function
+                    setShowIndex={() => setShowIndex(index)}
+                />
             ))}
         </div>
     )
