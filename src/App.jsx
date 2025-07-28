@@ -28,10 +28,11 @@ const AppLayout = () => {
       name: "Adarsh"
     };
     setUserInfo(data.name)
-  },[])
+  }, [])
+  // console.log(userInfo)
   return (
-    <UserContext.Provider value={{ loggedInUser: userInfo }}>
-
+    <UserContext.Provider
+      value={{ loggedInUser: userInfo, setUserInfo }}>
       <div className="app">
         <Header />
         <Outlet />

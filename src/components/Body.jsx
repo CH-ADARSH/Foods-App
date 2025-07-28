@@ -1,9 +1,10 @@
 import ResturantCard,{withPromtedLabel} from "./ResturantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import {RESTAURANT} from "../utils/constants.jsx"
 import useOnlineStatus from "../utils/useOnlineStatus.jsx";
+import UserContext from "../utils/UserContext.jsx";
 
 
 const Body = () => {
@@ -27,9 +28,7 @@ const Body = () => {
     setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setfilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
-  // if (listOfRestaurants.length === 0) {
-  //   return <Shimmer />;
-  // }
+  
   const onlineStatus = useOnlineStatus();
 
   if (onlineStatus === false) return <>
@@ -37,6 +36,7 @@ const Body = () => {
     <Shimmer />
   </>
 
+  const {setUserInfo ,loggedInUser}=useContext(UserContext)
 
   return listOfRestaurants.length === 0 ? (
       <Shimmer />
@@ -69,7 +69,12 @@ const Body = () => {
             }} 
             >
               Top Rated ⭐</button> 
-
+          </div>
+          <div className="search m-3 p-3 flex items-center dark:text-white ">
+            <label htmlFor="">User Name :</label>
+            <input className="border border-black m-3 dark:text-black"
+              value={loggedInUser}
+              onChange={(e) => setUserInfo(e.target.value)} />
           </div>
         </div>
         <div className="flex flex-wrap p-[55px] dark:bg-neutral-600">
@@ -84,8 +89,7 @@ const Body = () => {
                   :
                   (<ResturantCard resData={restaurants} />)
                 }
-            </Link>
-            
+            </Link>        
           ))}
         </div>
       </div>

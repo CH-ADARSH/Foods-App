@@ -9,7 +9,7 @@ const RestaurantMenu = () => {
     const { resId } = useParams();
     const resInfo = useRestaurantMenu(resId);
     
-    const [showIndex, setShowIndex] = useState(0);
+    const [showIndex, setShowIndex] = useState();
     const [showVegOnly, setShowVegOnly] = useState(false); // State to track veg filter
     const { loggedInUser } = useContext(UserContext)
 

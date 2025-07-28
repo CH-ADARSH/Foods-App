@@ -110,3 +110,20 @@ USING WINDOW
 ## lifting the state up very basic
 
 ## useContext a new hook
+
+##### REDUX
+
+-- Use for state management
+-- Creating add to card feature
+-- Redux Store is a big object and it is kept in a central global place.
+-- Any component can access it use it, modify it .
+-- Redux has slices in redux store.
+-- Slices (These are the logical separation eg:- logInfo, Cart Slice , and many more ).
+
+## Architecture of REDUX TOOL KIT
+
+-- Button -->onclick ==> dispatches a Action ==> which calls a function(Reducer Function) ==> which updates the Slice of the Redux store [Cart(1)] Internally modifies the cart. (Writing the data)
+
+-- We will use the selector to read the data from the slice and modify the ui of the CART
+
+-- When we use the selector it is known as Subscribing to our store.(Sync with the store )
