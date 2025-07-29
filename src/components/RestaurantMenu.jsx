@@ -9,7 +9,7 @@ const RestaurantMenu = () => {
     const { resId } = useParams();
     const resInfo = useRestaurantMenu(resId);
     
-    const [showIndex, setShowIndex] = useState();
+    const [showIndex, setShowIndex] = useState( );
     const [showVegOnly, setShowVegOnly] = useState(false); // State to track veg filter
     const { loggedInUser } = useContext(UserContext)
 
@@ -43,7 +43,6 @@ const RestaurantMenu = () => {
     };
 
     const filteredCategories = getFilteredCategories();
-    console.log(filteredCategories)
 
     return (
         <div className="Recommended text-center dark:text-white dark:bg-slate-500 my-2 ">

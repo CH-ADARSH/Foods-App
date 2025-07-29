@@ -127,3 +127,14 @@ USING WINDOW
 -- We will use the selector to read the data from the slice and modify the ui of the CART
 
 -- When we use the selector it is known as Subscribing to our store.(Sync with the store )
+
+## Redux Toolkit
+
+- Install r@edux/toolkit and react-redux
+- Build the store
+- Connect store to app
+- Create a Slice(cartSlice)
+- Dispatch an action
+- Read the data with selector
+
+-- Created a Cart page using React

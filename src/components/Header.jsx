@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import ThemeSelector from "../utils/ThemeSelector";
 import UserContext from "../utils/UserContext.jsx";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
@@ -12,7 +13,9 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(UserContext)
 
-  // console.log("rendering the header")
+  // Subscribing to the store using a selector 
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
     <div className="flex justify-between bg-green-50 shadow-lg sm:bg-yellow-100 lg:bg-pink-50
      dark:bg-neutral-800 dark:shadow-lg dark:shadow-black ">
@@ -37,7 +40,11 @@ const Header = () => {
           <li className="px-4 dark:text-white dark:hover:text-red-500 transition-colors duration-500"><Link to="/about">About Us</Link></li>
           <li className="px-4 dark:text-white dark:hover:text-red-500 transition-colors duration-500"><Link to="/contact">Contact Us</Link></li>
           <li className="px-4 dark:text-white dark:hover:text-red-500 transition-colors duration-500"><Link to="/grocery">Grocery</Link></li>
-          <li className="px-4 dark:text-white dark:hover:text-red-500 transition-colors duration-500">Cart</li>
+          <li className="px-4 dark:text-white dark:hover:text-red-500 transition-colors duration-500">
+            <Link to="/cart">
+              Cart ({cartItems.length} items)
+            </Link>
+          </li>
           <button className="login px-4 dark:text-white dark:hover:text-red-500 transition-colors duration-500  " onClick={() => {
             btnNameReact === 'LogIn' ? setbtnNameReact('LogOut')
               : setbtnNameReact('LogIn');
