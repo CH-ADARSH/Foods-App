@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "- Build a `Food Ordering App`\r   - Think of a `cool name` for your app\r   - Build an `AppLayout`\r   - Build a `Header Component` with Logo & Nav Items & Cart\r   - Build a `Body Component`\r     - Build `RestaurantList Component`\r     - Build `RestaurantCard Component`\r       - Use `static data initially`\r       - Make your `card dynamic`(pass in props)\r         - `Props` - passing arguments to a function - Use Destructuring & Spread operator\r       - `Render` your cards with dynamic data of restaurants\r       - Use `Array.map` to render all the restaurants",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },
@@ -19,7 +19,15 @@
     "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "babel-jest": "^30.0.5",
     "buffer": "^6.0.3",
+    "jest": "^30.0.5",
+    "jest-environment-jsdom": "^30.0.5",
     "parcel": "^2.15.2",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17"

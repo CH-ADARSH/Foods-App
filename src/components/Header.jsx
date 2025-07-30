@@ -45,7 +45,7 @@ const Header = () => {
               Cart ({cartItems.length} items)
             </Link>
           </li>
-          <button className="login px-4 dark:text-white dark:hover:text-red-500 transition-colors duration-500  " onClick={() => {
+          <button className="login px-4 shadow-md rounded-md dark:text-white dark:hover:text-red-500 transition-colors duration-500" onClick={() => {
             btnNameReact === 'LogIn' ? setbtnNameReact('LogOut')
               : setbtnNameReact('LogIn');
           }}>{btnNameReact}</button>
