@@ -1,8 +1,9 @@
 import { CDN_URL } from "../utils/constants";
+import React from "react";
 
 const ResturantCard = (props) => {
     const { resData } = props;
-  
+    
     const {
       cloudinaryImageId,
       name,
@@ -13,6 +14,7 @@ const ResturantCard = (props) => {
       aggregatedDiscountInfoV3,
 
   } = resData?.info;  
+
 
     return (
       <div

@@ -159,3 +159,6 @@ USING WINDOW
   -- Created a TESTING folder foldername as("**tests**"). as jest indicated, it is trying to match the path.(or use Header.test.js or sum.spec.js) it scans for such files with .js and .tsx files
   -- install @babel/preset-react to use jsx in test file
   -- Installing @testing-library/jest-dom
+
+-- How to test Click events? (using fireEvent.click)
+-- PASSING A MOCK_DATA FOR TESTING WHEN USING (PROPS)
