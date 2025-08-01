@@ -1,6 +1,7 @@
-import ResturantCard,{withPromtedLabel} from "./ResturantCard";
+import React from "react";
+import ResturantCard, { withPromtedLabel } from "./ResturantCard";
 import { useState, useEffect,useContext } from "react";
-import Shimmer from "./Shimmer";
+import Shimmer from "./Shimmer.jsx";
 import { Link } from "react-router-dom";
 import {RESTAURANT} from "../utils/constants.jsx"
 import useOnlineStatus from "../utils/useOnlineStatus.jsx";
